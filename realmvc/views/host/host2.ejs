@@ -1,0 +1,89 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Enter Your Housename</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #edf2f7;
+  color: #334;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px -5px #0003;
+  text-align: center;
+}
+
+.container h1 {
+  color: #4a90e2;
+  margin-bottom: 20px;
+}
+
+.container label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.container input[type="text"],
+.container input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 2px solid #4a90e2;
+  border-radius: 8px;
+  font-size: 1em;
+}
+
+.container input[type="submit"] {
+  background: #4a90e2;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.container input[type="submit"]:hover {
+  background: #357ab8;
+}
+</style>
+</head>
+<body>
+  <%- include('../partials/nav') %>
+
+  <div class="container">
+    <h1>Enter Your Details:</h1>
+    <form action="/host/submit-details" method="POST">
+      <label for="housename">Enter House Name</label>
+      <input id="housename" name="housename" placeholder="Enter your housename" type="text" required>
+
+      <label for="price">Enter price</label>
+      <input id="price" name="price" placeholder="Enter your price" type="number" min="0" required><!-- min added -->
+
+      <label for="location">Enter location</label>
+      <input id="location" name="location" placeholder="Enter your location" type="text" required>
+
+      <label for="rating">Enter rating</label>
+      <input id="rating" name="rating" placeholder="Enter your rating" type="number" min="0" max="5" step="0.1" required><!-- min, max, and step added -->
+      <label for="rating">Enter rating</label>
+      <input id="photo" name="photo" placeholder="Enter your photo" type="text">
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</body>
+</html>

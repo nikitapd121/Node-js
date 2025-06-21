@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Submission Successful</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #edf2f7;
+  color: #334;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px -5px #0003;
+  text-align: center;
+}
+
+.container h1 {
+  color: #38a169;
+  margin-bottom: 20px;
+}
+
+.container p {
+  color: #334;
+  font-size: 1.1em;
+  margin-bottom: 30px;
+}
+
+.container a {
+  display: inline-block;
+  background: #38a169;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 1em;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.container a:hover {
+  background: #2f855a;
+}
+</style>
+</head>
+<body>
+  <%- include('../partials/nav') %>
+
+  <div class="container">
+    <h1>Successfully Submitted</h1>
+    <p>Your submission has been received. Thank you!</p>
+    <a href="/">Go back to Home</a>
+  </div>
+</body>
+</html>
