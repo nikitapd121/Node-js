@@ -1,0 +1,111 @@
+<style>
+  :root {
+    --primary: #0a0f4b;
+    --primary-dark: #050931;
+    --accent: #6c63ff;
+    --text-light: #ffffff;
+    --hover: #1d237e;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  header {
+    width: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    color: var(--text-light);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  .header-left,
+  .header-right {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .header-center {
+    flex: 1;
+    text-align: center;
+  }
+
+  .header-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--text-light);
+  }
+
+  .nav-link {
+    background-color: var(--accent);
+    color: var(--text-light);
+    padding: 10px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+
+  .nav-link:hover {
+    background-color: var(--hover);
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .header-center {
+      text-align: left;
+      width: 100%;
+    }
+  }
+</style>
+
+<header>
+  <div class="header-left">
+    <% if (isLoggedIn && user && user.accountType === 'host') { %>
+      <a href="/host/host-home" class="nav-link">Host Home</a>
+    <% } else if (isLoggedIn && user && user.accountType === 'user') { %>
+      <a href="/" class="nav-link">View Homes</a>
+    <% } else { %>
+      <a href="/" class="nav-link">View Homes</a>
+    <% } %>
+  </div>
+
+  <div class="header-center">
+    <div class="header-title">Airbnb</div>
+  </div>
+
+  <div class="header-right">
+    <% if (isLoggedIn && user) { %>
+      <% if (user.accountType === 'host') { %>
+        <a href="/host/add-home" class="nav-link">Add Home</a>
+        <a href="/fav" class="nav-link">FAV</a>
+      <% } else if (user.accountType === 'user') { %>
+        <a href="/fav" class="nav-link">FAV</a>
+        <a href="/booking" class="nav-link">Bookings</a>
+      <% } %>
+      <a href="/logout" class="nav-link">Logout</a>
+    <% } else { %>
+      <a href="/login" class="nav-link">Login</a>
+    <% } %>
+  </div>
+</header>

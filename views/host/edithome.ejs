@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Home</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #edf2f7;
+      color: #334;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px -5px #0003;
+      text-align: center;
+    }
+
+    .container h1 {
+      color: #4a90e2;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 2px solid #4a90e2;
+      border-radius: 8px;
+    }
+
+    input[type="submit"] {
+      background: #4a90e2;
+      color: #ffffff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background: #357ab8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Edit Your Details:</h1>
+    <form action="/host/edit-home" method="POST">
+      <input type="hidden" name="id" value="<%= home._id %>">
+      <label>House Name</label>
+      <input name="housename" type="text" value="<%= home.houseName %>" required>
+      <label>Price</label>
+      <input name="price" type="number" min="0" value="<%= home.price %>" required>
+      <label>Location</label>
+      <input name="location" type="text" value="<%= home.location %>" required>
+      <label>Rating</label>
+      <input name="rating" type="number" min="0" max="5" step="0.1" value="<%= home.rating %>" required>
+      <label for="photo">Upload photo</label>
+  <input type="file" name="photo" id="photo" accept="image/*" required />
+      <label for="description">Description</label>
+<textarea id="description" name="description" rows="4" placeholder="Enter description"><%= home.description %></textarea>
+
+      <input type="submit" value="Update">
+    </form>
+  </div>
+</body>
+</html>
